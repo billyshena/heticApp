@@ -1,0 +1,15 @@
+@media screen and (min-width:500px){
+    #main-wrapper{
+        display:none;
+    }
+
+}
+
+
+@media screen and (max-width: 500px){
+    #drop{
+        display:none;
+    }
+
+}
+

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Sails App</title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+    <!--
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/dropzone.css">
+    <link rel="stylesheet" href="/styles/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/foundation.css">
+    <link rel="stylesheet" href="/styles/foundation.min.css">
+    <link rel="stylesheet" href="/styles/idangerous.swiper.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <!--STYLES END-->
+
+      <style>#droppable { width: 100%; height: 100px;}</style>
+  </head>
+
+  <body>
+  <nav class="top-bar" data-topbar="" role="navigation">
+      <!-- Title -->
+      <ul class="title-area">
+          <li class="name"><h1><a href="#">Sexy Top Bar</a></h1></li>
+
+          <!-- Mobile Menu Toggle -->
+          <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <!-- Top Bar Section -->
+
+      <section class="top-bar-section">
+
+          <!-- Top Bar Left Nav Elements -->
+          <ul class="left">
+
+              <!-- Search | has-form wrapper -->
+              <li class="has-form">
+                  <div class="row collapse">
+                      <div class="large-8 small-9 columns">
+                          <input type="text" placeholder="Find Stuff">
+                      </div>
+                      <div class="large-4 small-3 columns">
+                          <a href="#" class="alert button expand">Search</a>
+                      </div>
+                  </div>
+              </li>
+              <li class="has-form">
+                  <a class="button">Test</a>
+              </li>
+          </ul>
+
+          <!-- Top Bar Right Nav Elements -->
+          <ul class="right">
+              <!-- Divider -->
+              <li class="divider"></li>
+
+              <!-- Dropdown -->
+              <li class="has-dropdown not-click"><a href="#">Item 1</a>
+                  <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="#">Item 1</a></li>
+                      <li><label>Level One</label></li>
+                      <li><a href="#">Sub-item 1</a></li>
+                      <li><a href="#">Sub-item 2</a></li>
+                      <li class="divider"></li>
+                      <li><a href="#">Sub-item 3</a></li>
+                      <li class="has-dropdown not-click"><a href="#">Sub-item 4</a>
+
+                          <!-- Nested Dropdown -->
+                          <ul class="dropdown"><li class="title back js-generated"><h5><a href="javascript:void(0)">Back</a></h5></li><li class="parent-link show-for-small"><a class="parent-link js-generated" href="#">Sub-item 4</a></li>
+                              <li><label>Level Two</label></li>
+                              <li><a href="#">Sub-item 2</a></li>
+                              <li><a href="#">Sub-item 3</a></li>
+                              <li><a href="#">Sub-item 4</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="#">Sub-item 5</a></li>
+                  </ul>
+              </li>
+
+              <li class="divider"></li>
+
+              <!-- Anchor -->
+              <li><a href="#">Generic Button</a></li>
+              <li class="divider"></li>
+
+              <!-- Button -->
+              <li class="has-form show-for-large-up">
+                  <a href="http://foundation.zurb.com/docs" class="button">Get Lucky</a>
+              </li>
+          </ul>
+      </section>
+  </nav>
+
+  <div class="row" id="drop">
+      <div class="small-3 small-centered columns"
+           style="border:3px solid #E5E5E5;width:300px;height:300px;
+           border-radius:160px;margin:100px auto;text-align:center;padding-top:100px;
+           color:#A1ACB4">
+          Glissez un projet depuis votre mobile dans la dropzone
+
+          <img id="loader" src="/images/load.gif" height="128" width="128" style="display: block;margin: 0 auto;" />
+      </div>
+      <div class="progress small-3 small-centered columns" id="progressBar" style="margin-top:50px;">
+          <div class="meter" style="width: 0%"></div>
+      </div>
+      <div class="small-3 small-centered columns" style="border: 3px solid #E5E5E5;
+        width: 300px;
+        height: 300px;
+        border-radius: 160px;
+        margin: 100px auto;
+        text-align: center;
+        padding-top: 100px;
+        position:relative;
+        color: #A1ACB4;
+        ">
+          <div id="features1"
+               style="background:url('/images/scoledge.jpg');width: 300px;height: 300px;
+               border-radius: 160px;margin:0 auto;border:4px solid black;">
+          </div>
+          <div id="features2"
+               style="background:url('/images/hetic.jpg');width: 300px;height: 300px;
+               border-radius: 160px;margin:0 auto;border:4px solid black;">
+          </div>
+
+      </div>
+
+
+  </div>
+
+  <iframe name="StartYourDev"
+          id="iframe"
+          height="1200px" width="550px" style="position:absolute;top:0;width:100%;left:0;background-color:white;display:none;">
+      Votre navigateur ne supporte pas les iframes
+  </iframe>
+  <div id="main-wrapper">
+
+      <!--      <div class="small-12 columns" style="padding:0;">
+                <div id="droppable"
+                     class="ui-widget-header"
+                     style="background-color:#F3F3F3;border-bottom:3px solid  lightgrey;">
+                </div>
+            </div>-->
+      <div class="small-12 columns">
+          <style>
+              .device {
+                  width: 100%;
+                  height: 300px;
+                  margin: 5px auto;
+                  position: relative;
+              }
+              .swiper-container {
+                  height: 300px;
+                  width: 640px;
+              }
+              .content-slide {
+                  padding: 20px;
+                  color: #fff;
+              }
+              .title {
+                  font-size: 25px;
+                  margin-bottom: 10px;
+              }
+              .pagination {
+                  position: absolute;
+                  left: 0;
+                  text-align: center;
+                  bottom:5px;
+                  width: 100%;
+              }
+              .swiper-pagination-switch {
+                  display: inline-block;
+                  width: 10px;
+                  height: 10px;
+                  border-radius: 10px;
+                  background: #999;
+                  box-shadow: 0px 1px 2px #555 inset;
+                  margin: 0 3px;
+                  cursor: pointer;
+              }
+              .swiper-active-switch {
+                  background: #fff;
+              }
+          </style>
+          <div class="device">
+              <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                            <img
+                                    src="/images/scoledge.jpg"
+                                    style="height:275px;width:290px;border-radius:200px;" data-img="1" class="slider-mob"/>
+                      </div>
+                      <div class="swiper-slide">
+                          <img
+                                  src="/images/hetic.jpg"
+                                  style="height:275px;width:290px;border-radius:200px;" data-img="2"  class="slider-mob"/>
+                      </div>
+                      <div class="swiper-slide">
+                          <div class="content-slide">
+                              <p class="title">Slide with HTML</p>
+                              <p>You can put any HTML inside of slide with any layout, not only images, even another Swiper!</p>
+                          </div>
+                      </div>
+                  </div>
+
+
+
+
+              </div>
+          </div>
+      </div>
+
+      <div class="small-12 columns">
+           <div style="width:640px;height:30px;margin:0 auto;">
+               <span style="color:#4EBA6F;font-size:30px;" class="actions">
+                   <i class="fa fa-check"></i>
+               </span>
+           </div>
+      </div>
+
+
+
+
+  </div>
+
+
+    <script src="/js/jquery.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script src="/js/touch.js"></script>
+    <script src="/js/idangerous.swiper.min.js"></script>
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
+
+
+  <script>
+      var baseUrl = 'http://localhost:1337';
+      var portfolio = {
+          1: {
+              id: 1,
+              url: 'http://www.scoledge.fr'
+          },
+
+          2: {
+              id: 2,
+              url: 'http://hetic.net'
+          }
+      };
+
+      /** On new click Event **/
+      io.socket.on('newContent',function(data){
+          if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+              $("#features"+data.id).fadeIn()
+                      .css({top:800,position:'absolute'})
+                      .animate({top:-530, left:0 , right:0 , bottom: 0, visibility:'visible'}, 900, function() {
+                          //callback
+                          progress(100,$('#progressBar'),data.url);
+                      });
+
+          }
+      });
+
+
+      /** Whenever the user decides to remove the item being displayed **/
+      io.socket.on('remove',function(data){
+          if(!/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+              $('#iframe').fadeOut(2000);
+              console.log(data);
+              $('#features'+data.id).animate({
+                  top: 800
+              },900,function(){
+                  return;
+              })
+          }
+      });
+
+
+
+
+      function hideLoader(){
+          var loader = $('#loader');
+          loader.hide();
+      }
+
+
+       function progress(percent, $element,url) {
+          $element.show();
+          $element.find('div').attr('width',0);
+          var progressBarWidth = percent * $element.width() / 100;
+          $element.find('div').animate({ width: progressBarWidth }, 2000,function(){
+              /** When progressBar is completed , load the content **/
+              $('#iframe').attr('src',url);
+              $('#iframe').fadeIn(2000);
+          });
+
+      }
+
+
+      $('.actions').click(function(){
+
+          var div = $('.swiper-slide-active');
+          var id = div.find('img').attr('data-img');
+          var content = portfolio[id];
+
+          if($(this).find('i').hasClass('fa-check')){
+              $(this).empty();
+              $(this).append('<span class="actions" style="color:#E87352;font-size:30px;"><i class="fa fa-times"></i></span>');
+
+              io.socket.post(baseUrl + '/main',{content: content }, function(){
+                  return 0;
+              });
+          }
+          else{
+              $(this).empty();
+              $(this).append('<span style="color:#4EBA6F;font-size:30px;" class="actions"><i class="fa fa-check"></i></span>');
+              io.socket.post(baseUrl + '/main/remove',{content: content }, function(){
+                  return 0;
+              });
+          }
+      });
+
+      var mySwiper = new Swiper('.swiper-container',{
+          loop:true,
+          grabCursor: true,
+          paginationClickable: true
+      })
+      $('.arrow-left').on('click', function(e){
+          e.preventDefault()
+          mySwiper.swipePrev()
+      })
+      $('.arrow-right').on('click', function(e){
+          e.preventDefault()
+          mySwiper.swipeNext()
+      })
+
+
+
+  </script>
+  </body>
+</html>
+
+
